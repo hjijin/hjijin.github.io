@@ -5,7 +5,7 @@
       <li class="loading">Status updating&#8230;</li>
     </ul>
   </li>
-  <script type="text/javascript" src="{{BASE_PATH}}/assets/js/github.js"></script>
+  <script type="text/javascript" src="{{BASE_PATH}}/js/github.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
 	  github.showRepos({
