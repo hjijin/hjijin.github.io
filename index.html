@@ -1,23 +1,18 @@
 ---
 layout: page
-title: "还请忍受我的扯淡..."
+title: "请忍受我的扯淡..."
 tagline: This is a blog just for fun.
 titleline: 乱七八糟的分享一点
 links: 
-  - url: "#"
-    name: "My Google Plus"
-  - url: "#"
+  - url: "http://weibo.com/u/2181906002"
     name: "我的微博"
     title: "个人心情"
-  - url: "#"
+  - url: "http://www.zhihu.com/"
     name: "知乎"
     title: "你知乎？"
-  - url: "#"
+  - url: "http://www.qiushibaike.com/"
     name: "糗事百科"
     title: "糗事多。"
-  - url: "#"
-    name: "神吐槽"
-    title: "有点邪恶喔？"
 ---
 {% include JB/setup %}
 {% include sd/logo %}
@@ -30,8 +25,8 @@ links:
   {% for post in paginator.posts %}
     <li>
 	  <div class="index_intro span6">
-  	  <h3 class="index_title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
-  	  <p class="index_excerpt">{{ post.excerpt }}</p>
+	  <h3 class="index_title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
+	  <p class="index_excerpt">{{ post.excerpt }}</p>
 	  </div>
 	  <span class="index_date span2">{{ post.date | date_to_string }}</span>
 	</li>
@@ -58,7 +53,7 @@ links:
 <div id="aside" class="well sidebar-nav">
 <ul class="nav nav-list">
 
-  <li class="nav-header">分类</li>
+  <li class="nav-header">Categories</li>
   {% assign categories_list = site.categories %}
   {% include JB/categories_list %}
 

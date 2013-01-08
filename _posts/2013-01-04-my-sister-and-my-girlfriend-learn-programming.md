@@ -1,10 +1,10 @@
 ---
 layout: post
 title: 我姐和我女朋友是如何学编程的
-category: programming
+category: Fun
 excerpt: "能学会编程，真的是太好了。"
 tags:
-- IT技术
+- 瞎扯
 ---
 {% include JB/setup %}
 
