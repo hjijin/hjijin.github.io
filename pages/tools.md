@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "工具"
+title: Wiki
 group: navigation
 ---
 {% include JB/setup %}
