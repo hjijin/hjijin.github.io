@@ -29,7 +29,7 @@ tags: ruby
 
 再安装一个YAML库（不同操作系统的安装命了略有不同）：
 
-   # Debian-based
+    # Debian-based
     $ apt-get install libyaml-dev
 
     # Fedora/CentOS/RHEL Linux
