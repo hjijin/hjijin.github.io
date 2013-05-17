@@ -5,5 +5,5 @@ group: navigation
 ---
 {% include JB/setup %}
 
-此人很懒，打算用N年写这个about，所以不要管它了……
+此人很懒，打算用N年写这个about，所以冇使理距……
 

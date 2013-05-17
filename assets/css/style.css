@@ -195,7 +195,7 @@ li.gplus_status {
 .logo {
 	/*margin: -10px 0 15px;*/
 	overflow: hidden;
-    background-image: url("../images/logo.jpg");
+  background-image: url("../images/logo.jpg");
 	margin: -10px auto 10px;
 	width: 930px;
 	height: 120px;

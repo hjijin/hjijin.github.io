@@ -1,2 +1,26 @@
-<div class="logo">
+<div class="sixteen columns  slider clearfix">
+	<div class="flexslider">
+		<ul class="slides">
+		    <li>
+				<a href="#"><img src="../assets/images/slider/slider_image1.png" alt="" /></a>
+				<div class="flex-caption">Creative ideas for your business</div>
+			</li>
+		    <li>
+				<a href="#"><img src="../assets/images/slider/slider_image2.png" alt="" /></a>
+				<div class="flex-caption">It looks hard, it's harder than it looks.</div>
+			</li>
+			<li>
+				<a href="#"><img src="../assets/images/slider/slider_image3.png" alt="" /></a>
+				<div class="flex-caption">Taking You Forward</div>
+			</li>
+		</ul>
+	</div>
 </div>
+
+<script>
+	$(document).ready(function() {
+		$(".slider .flexslider").flexslider({
+			animation: "slide"
+		});
+	});
+</script>
