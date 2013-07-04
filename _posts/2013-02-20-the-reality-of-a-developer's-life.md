@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "程序猿的真实生活"
-category: fun
+category: Fun
 excerpt: 程序猿是最苦逼的一群人，究竟有多苦？今天就用GIF图片来告诉大家程序猿的真实生活。
 tags: 瞎扯
 ---

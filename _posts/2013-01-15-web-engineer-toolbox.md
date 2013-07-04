@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Web工程师在线工具箱"
-category: web
+category: Web
 excerpt: 各种可以用来进行开发、测试、调试以及文档编排的在线工具集。
 tags: 前端
 ---

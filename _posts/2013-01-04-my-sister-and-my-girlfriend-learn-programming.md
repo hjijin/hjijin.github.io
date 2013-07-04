@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "我姐和我女朋友是如何学编程的"
-category: fun
+category: Fun
 excerpt: "能学会编程，真的是太好了。"
 tags: 瞎扯
 ---

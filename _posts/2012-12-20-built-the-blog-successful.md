@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "成功搭建博客"
-category: technology
+category: ITinfo
 excerpt: 架起属于自己的博客--理想的写作环境.
 tags: IT技术
 ---

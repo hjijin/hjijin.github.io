@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "干技术活应该尝试的10000件事"
-category: fun
+category: Fun
 excerpt: 如果你是干计算机技术活的，应该尝试的10000件事
 tags: 瞎扯
 ---
