@@ -2,13 +2,13 @@
 layout: post
 title: "CentOS 搭建 Ruby on Rails 部署环境"
 category: Linux
-excerpt: 在CentOS上搭建 Ruby on Rails 部署环境，在这分享一下我的搭建过程。
+excerpt: 在CentOS上搭建 Ruby on Rails 部署环境，记录下安装的过程，留给自己备忘。
 tags: IT技术
 ---
 
 {% include JB/setup %}
 
-    最近呢想学习下在服务器上部署Rails项目，打算在在CentOS上搭建 Ruby on Rails 部署环境，现在记录下安装的过程，留给自己备忘。
+最近呢想学习下在服务器上部署Rails项目，打算在在CentOS上搭建 Ruby on Rails 部署环境，现在记录下安装的过程，留给自己备忘。
 我在[CentOS](http://www.centos.org/modules/tinycontent/index.php?id=30)官网下载了*CentOS-6.4* 的镜像文件，在 Mac 的 Vmware 	Fusion 里安装的。
 过程...
 
