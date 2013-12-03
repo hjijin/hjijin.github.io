@@ -1,14 +1,12 @@
-# Ruby on Rails 升级指南
+---
+layout: post
+title: "Ruby on Rails 升级指南"
+category: ror
+excerpt: 本篇讲解升级至新版 Rails 所需的步骤。同时也提供各版本的升级指导。
+tags: rails
+---
 
-__特别要强调的翻译名词__
-
-> application 应用程序 <br>
-> deprecated 弃用的、不宜使用的、过时的：即将在下一版移除的功能。<br>
-> middleware 中间件 <br>
-> route 路由 <br>
-> raise 抛出 <br>
-> exception 异常 <br>
-> associations 关联 <br>
+{% include JB/setup %}
 
 本篇讲解升级至新版 Rails 所需的步骤。同时也提供各版本的升级指导。
 
@@ -34,8 +32,7 @@ Rails 通常与最新的 Ruby 一起前进：
 
 * __强烈推荐使用 Ruby 2.0.0-p247__
 * Ruby 1.9.3-p448
-
-> [Ruby 1.8.7 退出历史舞台](https://www.ruby-lang.org/zh_cn/news/2013/06/30/we-retire-1-8-7/)
+*[Ruby 1.8.7 退出历史舞台](https://www.ruby-lang.org/zh_cn/news/2013/06/30/we-retire-1-8-7/)
 
 ## 1.3 HTTP PATCH
 
@@ -43,57 +40,62 @@ Rails 通常与最新的 Ruby 一起前进：
 
 Rails 4 更新操作的主要 HTTP 动词换成了 `PATCH`。当你在 `config/routes.rb` 以 _RESTful_ 形式宣告某个 resource 时，`PUT` 仍会路由到 `update` action，只是多了个 `PATCH`，同样路由到 `update` action。
 
-```ruby
-resources :users
-```
+```ruby```
 
-```erb
-<%= form_for @user do |f| %>
-```
+    resources :users*
 
-```ruby
-class UsersController < ApplicationController
-  def update
-    # 代码不用改；偏好使用 PATCH，PUT 仍然可用。
-  end
-end
-```
+
+```erb```
+
+  <%= form_for @user do |f| %>
+
+```ruby```
+
+    class UsersController < ApplicationController
+        def update
+          # 代码不用改；偏好使用 PATCH，PUT 仍然可用。
+        end
+    end
+
 
 但是，当使用 `form_for` 来更新自定路由（使用 `PUT` HTTP 动词）的 resource 时，
 
-```ruby
-resources :users, do
-  put :update_name, on: :member
-end
-```
+```ruby```
 
-```erb
-<%= form_for [ :update_name, @user ] do |f| %>
-```
-
-```ruby
-class UsersController < ApplicationController
-  def update_name
-    # 要修改代码；form_for 会试著使用不存在的 PATCH 路由。
+  resources :users, do
+      put :update_name, on: :member
   end
-end
-```
+
+```erb```
+
+  <%= form_for [ :update_name, @user ] do |f| %>
+
+
+```ruby```
+
+  class UsersController < ApplicationController
+      def update_name
+        # 要修改代码；form_for 会试著使用不存在的 PATCH 路由。
+      end
+  end
 
 若不是公有的 API，并且你有决定权换 HTTP 动词，那就把它从 `PUT` 改成 `PATCH` 吧。
 
 在 Rails 4 对 `/users/:id` 做 `PUT` 请求，会被导向 `update`。所以要是 API 接受 `PUT` 请求，那没问题。Router 同时也会将来自 `/users/:id` 的 `PATCH` 请求导向 `update` action。
 
-```ruby
-resources :users do
-  patch :update_name, on: :member
-end
-```
+```ruby```
+
+  resources :users do
+      patch :update_name, on: :member
+  end
+
 
 若此 action 正被公有的 API 使用，且你无权更改 HTTP 动词时，可更新 form，使用 `PUT` 动词：
 
-```erb
-<%= form_for [ :update_name, @user ], method: :put do |f| %>
-```
+```erb```
+
+  <%= form_for [ :update_name, @user ], method: :put do |f| %>
+
 
 至于为什么要改成 `PATCH`，参考[这篇文章](http://weblog.rubyonrails.org/2012/2/25/edge-rails-patch-is-the-new-primary-http-method-for-updates/)。
 
@@ -142,11 +144,12 @@ __注意：本小节仍在完善当中。__
 
 Rails 4.0 移除了 Gemfile 里的 `assets` group。升级至 4.0 时要移除这个 group，同时需要更新 `config/application.rb`：
 
-```ruby
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
-```
+```ruby```
+
+  # Require the gems listed in Gemfile, including any gems
+  # you've limited to :test, :development, or :production.
+  Bundler.require(:default, Rails.env)
+
 
 ## 2.2 vendor/plugins
 
@@ -168,12 +171,13 @@ Rails 4.0 不再支援从 `vendor/plugins` 载入 plugins。__必须__将任何 
 
 * Rails 4.0 要求 scope 必须是可调用的对象（Proc 或 lambda）：
 
-```ruby
-scope :active, where(active: true)
+  ```ruby```
 
-# 变成
-scope :active, -> { where active: true }
-```
+    scope :active, where(active: true)
+
+    # 变成
+    scope :active, -> { where active: true }
+
 
 * Rails 4.0 弃用了 `ActiveRecord::Fixtures`，请使用 `ActiveRecord::FixtureSet`。
 
@@ -207,32 +211,32 @@ Rails 4.0 将 Active Resource 抽成独立的 Gem。若你仍需要此功能，�
 
 * Rails 4.0 将 `ActiveModel::Serializers::JSON.include_root_in_json` 的缺省值改为 `false`，现在 Active Model Serializers 与 Active Record 对象缺省有著相同的行为。这表示你可以移除或注解掉这一行：
 
-`config/initializers/wrap_parameters.rb`:
+  `config/initializers/wrap_parameters.rb`:
 
-```ruby
-# Disable root element in JSON by default.
-# ActiveSupport.on_load(:active_record) do
-#   self.include_root_in_json = false
-# end
-```
+  ```#ruby```
+
+      # Disable root element in JSON by default.
+      # ActiveSupport.on_load(:active_record) do
+      #   self.include_root_in_json = false
+      # end
 
 ## 2.6 Action Pack
 
 * Rails 4.0 引入了 `ActiveSupport::KeyGenerator`，用来生成及检查已签署的 cookie。请在 `config/initializers/secret_token.rb` 加入新的 `secret_key_base`：
 
-```ruby
-# config/initializers/secret_token.rb
-Myapp::Application.config.secret_token = 'existing secret token'
-Myapp::Application.config.secret_key_base = 'new secret key base'
-```
+  ```ruby```
+  
+    # config/initializers/secret_token.rb
+      Myapp::Application.config.secret_token = 'existing secret token'
+      Myapp::Application.config.secret_key_base = 'new secret key base'
 
-请注意！要等到使用者都使用你的 Rails 4.x app，并确保你不会降级到 Rails 3.x，才设置 `secret_key_base`。因为 cookie 签署的算法并不向下相容。忽略 deprecation warning 使用 `secret_token` 也是没问题的，只要你知道你自己在做什么就好。
+  请注意！要等到使用者都使用你的 Rails 4.x app，并确保你不会降级到 Rails 3.x，才设置   `secret_key_base`。因为 cookie 签署的算法并不向下相容。忽略 deprecation warning 使用 `secret_token` 也是没问题的，只要你知道你自己在做什么就好。
 
-如果有外部应用程序或是 JavaScript，需要能够读 Rails app 签署的 session cookies，在你还没有解决这些问题之前，不要设置 `secret_key_base`。
+  如果有外部应用程序或是 JavaScript，需要能够读 Rails app 签署的 session cookies，在你还没有解决这些问题之前，不要设置 `secret_key_base`。
 
 * 有设置 `secret_key_base` 的话，Rails 4.0 会加密以 cookie-based session 的内容。Rails 3.x 有签署，但未加密。签署的 cookie 是安全的，因为他们是经由你的 app 生成与签署。然而 cookie 的内容仍可被使用者看到，因此加密内容排除了此风险，且没有降低多少的效能。
 
-请阅读 [Pull Request #9978](https://github.com/rails/rails/pull/9978) 来了解更多有关 session cookie 加密的细节。
+  请阅读 [Pull Request #9978](https://github.com/rails/rails/pull/9978) 来了解更多有关 session cookie 加密的细节。
 
 * Rails 4.0 移除了 `ActionController::Base.asset_path` 选项。请使用 Assets Pipeline。
 
@@ -252,51 +256,54 @@ Myapp::Application.config.secret_key_base = 'new secret key base'
 
 * 在 Rails 4.0，如果定义了重复名称的路由时，会抛出 `ArgumentError`。请见下面两例（重复的 `example_path`）：
 
-```ruby
-  get 'one' => 'test#example', as: :example
-  get 'two' => 'test#example', as: :example
-```
+  ```ruby```
 
-```ruby
-  resources :examples
-  get 'clashing/:id' => 'test#example', as: :example
-```
+      get 'one' => 'test#example', as: :example
+      get 'two' => 'test#example', as: :example
 
-第一个例子可直接换名字来解决。第二个例子可使用 `resources` 方法提供的 `only` 与 `except` 选项来限制生成出的路由，详见 [Routing Guide](/guides/edge-translation/routing-zh_TW.md#restricting-the-routes-created)
+
+  ```ruby```
+
+      resources :examples
+      get 'clashing/:id' => 'test#example', as: :example
+
+  第一个例子可直接换名字来解决。第二个例子可使用 `resources` 方法提供的 `only` 与 `except` 选项来限制生成出的路由，详见 [Routing Guide](/guides/edge-translation/routing-zh_TW.md#restricting-the-routes-created)
 
 * Rails 4.0 更改了 route 有 unicode 字符的生成方式。现在 route 里可直接使用 unicode 字符，先前需要 `escape` 的作法不再需要了：
 
-```ruby
-get Rack::Utils.escape('こんにちは'), controller: 'welcome', action: 'index'
-```
+  ```ruby```
+  
+    get Rack::Utils.escape('こんにちは'), controller: 'welcome', action: 'index'
 
-改为
 
-```ruby
-get 'こんにちは', controller: 'welcome', action: 'index'
-```
+  改为
+
+  ```ruby```
+
+    get 'こんにちは', controller: 'welcome', action: 'index'
+
 
 * Rails 4.0 要求使用 `match` 的 route 必须指定 HTTP 动词:
 
-```ruby
-  # Rails 3.x
-  match "/" => "root#index"
+  ```ruby```
+  
+      # Rails 3.x
+        match "/" => "root#index"
 
-  # 改成
-  match "/" => "root#index", via: :get
+      # 改成
+        match "/" => "root#index", via: :get
 
-  # 或
-  get "/" => "root#index"
-```
+      # 或
+        get "/" => "root#index"
 
 * Rails 4.0 移除了 `ActionDispatch::BestStandardsSupport` 中间件。因为 `<!DOCTYPE html>` 如[此文](http://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx)所述，已触发了标准模式。而 ChromeFrame header 被移到 `config.action_dispatch.default_headers` 了。
 
-记得移除所有使用到 `ActionDispatch::BestStandardsSupport` middleware 的参照：
+  记得移除所有使用到 `ActionDispatch::BestStandardsSupport` middleware 的参照：
 
-```ruby
-# 会抛出异常
-config.middleware.insert_before(Rack::Lock, ActionDispatch::BestStandardsSupport)
-```
+  ```ruby```
+  
+    # 会抛出异常
+      config.middleware.insert_before(Rack::Lock,       ActionDispatch::BestStandardsSupport)
 
 并移除环境设置中的 `config.action_dispatch.best_standards_support`。
 
@@ -334,12 +341,12 @@ Active Record Observer 与 Action Controller Sweeper 被抽成独立的 Gem：[r
 * `assets:precompile:primary` 被移除了。请改用 `assets:precompile`。
 * `config.assets.compress` 选项应改成 `config.assets.js_compressor`：
 
-```ruby
-config.assets.js_compressor = :uglifier
-```
+```ruby```
+
+  config.assets.js_compressor = :uglifier
 
 ## 2.11 sass-rails
 
 * `asset-url("rails.png", image)` 改成 `asset-url("rails.png")`
 
-*from*: https://github.com/JuanitoFatas/Guides/blob/master/guides/edge-translation/upgrading-ruby-on-rails-zh_CN.md
+*from*: [JuanitoFatas](https://github.com/JuanitoFatas/Guides/blob/master/guides/edge-translation/upgrading-ruby-on-rails-zh_CN.md)
