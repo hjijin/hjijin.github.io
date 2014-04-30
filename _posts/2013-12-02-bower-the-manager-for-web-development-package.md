@@ -2,7 +2,7 @@
 layout: post
 title: "Bower--用于web前端开发的包管理器"
 category: web
-excerpt: 因为业务需求，需要使用二维码，刚好这也是第一次弄，也就记下来吧。
+excerpt: Bower是用于web前端开发的包管理器。
 tags: 前端
 ---
 
