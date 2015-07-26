@@ -6,8 +6,6 @@ excerpt: Ruby开发需要你去坚持学习新的工具,新的技巧,更多的�
 tags: ruby
 ---
 
-{% include JB/setup %}
-
 Ruby开发需要你去坚持学习新的工具,新的技巧,更多的练习。随着新版本的Ruby和Rails的更替, 下面的简短清单有助于第一时间学习代码。
 
 

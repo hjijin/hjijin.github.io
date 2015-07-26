@@ -6,8 +6,6 @@ excerpt: 想体验最新版的ruby和rails吗？
 tags: ruby
 ---
 
-{% include JB/setup %}
-
 2013年2月24日,发布了Ruby的最新版本*2.0.0*, 想尝鲜的童鞋可以参考参考：
 我是在RVM里装的，同时我也建议用RVM,可以控制ruby版本切换。
 安装RVM 

@@ -6,19 +6,6 @@ excerpt: 各种可以用来进行开发、测试、调试以及文档编排的�
 tags: 前端
 ---
 
-{% include JB/setup %}
-
-<div>
-
-摘要已经言明了……
-
-</div>
-{:.js-toggle-next .alert .alert-info .dropdown}
-
-<div markdown="1">
-
-----
-
 本文出自Ivan Zuzak 的[《The Web engineer’s online toolbox》](http://ivanzuzak.info/2012/11/18/the-web-engineers-online-toolbox.html)，作者给了一个各种可以用来进行开发、测试、调试以及文档编排的在线工具集。
 
 [RequestBin](http://requestb.in/):允许你创建一个URL，利用这款工具进行收集请求，然后通过个性化方式进行检查。
@@ -98,4 +85,3 @@ tags: 前端
 [Workflowy](https://workflowy.com/), [LastCalc](http://www.lastcalc.com/), [Codepad](http://codepad.org/), [Mailinator](http://www.mailinator.com/) and [10MinuteMail](http://10minutemail.com/), [One time secret](https://onetimesecret.com/) and [CopyPasteCharacter](http://copypastecharacter.com/) – 这些App似乎和Web开发没什么关系。
 [Browsershots](https://browsershots.org/) – 一个用来测试网页在不同平台下的工具。（参看）
 [Scriptular](http://scriptular.com/) and [Rubular](http://rubular.com/) – 正则表达式工具，这样的工具太多了，如： [ReFiddle](http://refiddle.com/), [Regex pal](http://regexpal.com/) and [Txt2Re](http://www.txt2re.com/)。
-</div>

@@ -5,7 +5,6 @@ category: RoR
 excerpt: Factory Girl 构造模拟测试数据.
 tags: rails
 ---
-{% include JB/setup %}
 
 Factory Girl 是专门用来构造模拟测试数据的，第一次使用还是在学习[ruby on rails tutorial](http://ruby.railstutorial.org/)
 
@@ -14,15 +13,19 @@ Factory Girl 是专门用来构造模拟测试数据的，第一次使用还是�
 
 ##Gemfile 
 
-	group :test do   
-	  gem 'factory_girl_rails', '1.4.0' 
-	end 
+~~~ruby
+  group :test do   
+    gem 'factory_girl_rails', '1.4.0' 
+  end 
+~~~
 
 可以修改spec_helper.rb，禁用Fixture,修改如下
 
   `#` /spec/spec_helper.rb 
 
-	  # config.fixture_path = "#{::Rails.root}/spec/fixtures" 
+~~~ruby
+# config.fixture_path = "#{::Rails.root}/spec/fixtures" 
+~~~
 
 ###Factory Girl使用原则
 
@@ -37,47 +40,42 @@ Factory Girl 是专门用来构造模拟测试数据的，第一次使用还是�
 	user = Factory.create(:user)	#同上，是全写 
 	user = Factory.build(:user, :username => 'rob')	#只有new没有save 
 
-<div>
 
-	如在rails tutorial 中的使用方式：
+如在rails tutorial 中的使用方式：
 
-</div>
-{:.js-toggle-next .alert .alert-info .dropdown}
-
-<div markdown="1">
-
-----
 
   `#`spec/factories.rb 
 
-    Factory.define :user do |user|
-      user.name      "Michael Hartl"
-      user.email     "mhartl@example.com" 
-      user.password  "foobar"
-      user.password_confirmation  "foobar"
-    end
+~~~ruby
+  Factory.define :user do |user|
+    user.name      "Michael Hartl"
+    user.email     "mhartl@example.com" 
+    user.password  "foobar"
+    user.password_confirmation  "foobar"
+  end
 
-    Factory.sequence :email do |n|
-      "person-#{n}@example.com"
-    end
+  Factory.sequence :email do |n|
+    "person-#{n}@example.com"
+  end
 
-    Factory.define :micropost do |micropost|
-      micropost.content  "Foo bar"
-      micropost.association :user
-    end
-</div>
+  Factory.define :micropost do |micropost|
+    micropost.content  "Foo bar"
+    micropost.association :user
+  end
+~~~
 
 ###在Rspec中的调用方法
-
-	post = Factory(:post) 
+~~~ruby
+  post = Factory(:post) 
+~~~
 
 ###其实上面代码相当于：
-
-	user = User.new 
-	user.email = "test@example.com" 
-	user.save! 
-	post = Post.new 
-	post.title = "Hello" 
-	post.user = user post.save! 
-
+~~~ruby
+  user = User.new 
+  user.email = "test@example.com" 
+  user.save! 
+  post = Post.new 
+  post.title = "Hello" 
+  post.user = user post.save! 
+~~~
 *更多请参考*：[factory_girl](https://github.com/thoughtbot/factory_girl)

@@ -6,8 +6,6 @@ excerpt: ruby 开发好用的资源.
 tags: rails
 ---
 
-{% include JB/setup %}
-
 
 ## Reference
 

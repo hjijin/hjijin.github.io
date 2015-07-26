@@ -6,13 +6,11 @@ excerpt: 前端开源开发好用的资源.
 tags: 前端
 ---
 
-{% include JB/setup %}
-
 对于开发者而言，了解当下比较流行的开源项目很是必要。利用这些项目，有时能够让你达到事半功倍的效果。为此，本文整理GitHub上最火的前端开源项目列表，内容涵盖了[Hack Design](http://hackdesign.org/courses/)、 [Designer School](http://designer-school.com/)、[TheExpressiveWeb](http://beta.theexpressiveweb.com/)、[Talks To Help You Become A Better Front-End Engineer In 2013](http://www.smashingmagazine.com/2012/12/22/talks-to-help-you-become-a-better-front-end-engineer-in-2013/)、[Web Development Teaching Materials](http://www.teaching-materials.org/)等。
 
 + Architecture
 
-    ![1]({{BASE_PATH}}/assets/images/post_img/architecture.jpg)
+    ![1](/upload/2013/0628/architecture.jpg)
 
     + [BEM](http://bem.info/method/)该方法可以让开发人员快速开发出网站，延长网站的寿命；保持代码的重用性。
 
@@ -1766,4 +1764,4 @@ tags: 前端
     
     + [How to directly upload files to Amazon S3 from your client side web app](http://codeartists.com/post/36892733572/how-to-directly-upload-files-to-amazon-s3-from-your)
 
-[来源](https://github.com/dypsilon/frontend-dev-bookmarks)
+来源:[frontend-dev-bookmarks](https://github.com/dypsilon/frontend-dev-bookmarks)
