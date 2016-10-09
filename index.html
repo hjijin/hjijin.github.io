@@ -1,16 +1,53 @@
----
-layout: default
----
-<div id="home" class="container">
-  <h1>Welcome To My Blog</h1>
-  <p>现在努力工作将来才会有收获。</p>
-  <h2>/* Github项目 *\</h2>
-  <ul>
-    <li><a href="https://github.com/ruby/ruby" target="_blank">Ruby</a></li>
-    <li><a href="http://rubyonrails.org/" target="_blank">Ruby on Rails</a></li>
-    <li><a href="https://angularjs.org/" target="_blank">AngularJS</a></li>
-    <li><a href="https://github.com/tclz/angular-notes" target="_blank">angular-notes</a></li>
-    <li><a href="https://github.com/tclz/amazeui" target="_blank">Amaze UI</a></li>
-    <li><a href="https://github.com/tclz?tab=repositories" target="_blank">更多...</a></li>
-  </ul>
-</div>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>ajream's Resume</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body class="loading">
+  <div id="wrapper">
+    <div id="bg"></div>
+    <div id="overlay"></div>
+    <div id="main">
+      <!-- Header -->
+      <header id="header">
+        <h1>Jijin Huang</h1>
+        <p>To tell the truth &nbsp;&bull;&nbsp; HAHA &nbsp;&bull;&nbsp;I have not though about what to show</p>
+        <nav>
+          <ul>
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+            <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Footer -->
+      <footer id="footer">
+        <span class="copyright">&copy; Untitled. Design: <a href="#">huang</a>.</span>
+      </footer>
+    </div>
+  </div>
+  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+  <script>
+  window.onload = function() {
+    document.body.className = '';
+  }
+  window.ontouchmove = function() {
+    return false;
+  }
+  window.onorientationchange = function() {
+    document.body.scrollTop = 0;
+  }
+  </script>
+</body>
+
+</html>
